@@ -1,0 +1,5210 @@
+<!DOCTYPE html>
+ <html lang="en">
+  <head>
+   <title>Botanic Bloom Bistro</title>
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+   crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Roboto+Slab:wght@100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" 
+   rel="stylesheet">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+   <meta name="robots" content="noindex, nofollow">
+   <style>
+    /* --------------------Basic Style Settings-------------------- */
+    * {
+      padding: 0;
+      margin: 0;
+	  box-sizing: border-box;
+    }
+   
+    html, body {
+      font-family: sans-serif, verdana;
+      font-size: 15px;
+	  overflow-x: hidden;
+	  background: url('background.jpg') no-repeat center center fixed;
+	  background-size: cover;
+    }
+	
+	html {
+	  scroll-behavior: smooth;
+	}
+
+	#about, #hours, #contact {
+	  scroll-margin-top: 100px; /* adjust to match your nav height */
+	}
+
+    .width_100 {
+      width: 100%;
+    }
+	
+    /*-------------------- Navigation Bar ---------------------*/
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 50px;
+      position: relative;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+	  overflow: visible;
+	  border-bottom: #444;
+    }
+	
+	nav .first-part {
+	  width: 80%;
+	}
+	
+	nav .logo {
+	  float: left;
+	  margin-right: 20px;
+	}
+
+    nav .restaurant-name {
+      font-family: Playfair Display;
+      font-size: 20px;
+      letter-spacing: 2px;
+      color: white;
+	  font-weight: 300;
+	  white-space: nowrap;
+    }
+	
+	/* Wrapper for the nav <ul> + social icons. On desktop this just sits
+       inline; on mobile (see @media 900px below) it becomes the collapsible
+       dropdown that the hamburger button toggles. */
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ccc;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+	  margin-left: 25px;
+    }
+
+
+    .social-icons a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+	
+	/* Hamburger button (hidden on desktop, shown via @media 900px below).
+	   Clicking it toggles the "open" class on #navLinks and the "active"
+	   class on this button — handled by the script near the bottom of the page. */
+	.hamburger {
+	  display: none;
+	  flex-direction: column;
+	  justify-content: center;
+	  gap: 5px;
+	  cursor: pointer;
+	  z-index: 20;
+	}
+
+	.hamburger span {
+	  display: block;
+	  width: 26px;
+	  height: 2px;
+	  background: white;
+	  transition: transform 0.3s ease, opacity 0.3s ease;
+	}
+ 
+	/* When .active is applied, the 3 bars rotate/fade into an "X" */
+	.hamburger.active span:nth-child(1) {
+	  transform: translateY(7px) rotate(45deg);
+	}
+ 
+	.hamburger.active span:nth-child(2) {
+	  opacity: 0;
+	}
+ 
+	.hamburger.active span:nth-child(3) {
+	  transform: translateY(-7px) rotate(-45deg);
+	}
+	
+	/* ------------------- Menu Style Settings ---------------- */
+	.menu-title {
+	  font-family: Playfair Display;
+	  font-size: 35px;
+	  color: #444;
+	  font-weight: 300;
+	  margin-bottom: 30px;
+	  text-align: center;
+	}
+	
+	/* Section Layout */
+	.menu-section {
+	  margin-left: 130px;
+	  margin-top: 100px;
+	  margin-bottom: 100px;
+	  padding: 50px 70px;
+	  width: 80%;
+	  background-color: white;
+	}
+
+	/* Main Tabs */
+	.tab-row {
+	  display: flex;
+	  border: 1px solid #555;
+	  text-align: center;
+	}
+	.tab-row .tablink {
+	  flex: 1;
+	  padding: 12px;
+	  width: 20%;
+	  cursor: pointer;
+	  background-color: #5F6B54;
+	  color: white;
+	  font-family: Playfair Display;
+	  font-size: 19px;
+	  border-right: 1px solid #999;
+	  transition: background-color 0.3s;
+	}
+	.tab-row .tablink:hover {
+	  background-color: #ccc;
+	  color: #444;
+	}
+	.tab-row .tablink.active {
+	  background-color: #ccc;
+	  color: #444;
+	}
+
+	/* Menu Containers */
+	.menu {
+	  background-color: white;
+	  color: black;
+	  padding: 32px 16px;
+	  display: none;
+	}
+
+	/* Sub Tabs (dropdown-like) */
+	.subtab-bar {
+	  display: flex;
+	  margin-bottom: 16px;
+	}
+	.subtab-bar button {
+	  flex: 1;
+	  padding: 12px;
+	  font-size: 18px;
+	  font-family: Monaco;
+	  color: #444;
+	  border: none;
+	  cursor: pointer;
+	  background-color: #ccc;
+	  transition: background-color 0.3s;
+	  border-right: 1px solid #ddd;
+	}
+	.subtab-bar button:hover {
+	  background-color: #888;
+	  color: white;
+	}
+	.subtab-bar button.active {
+	  background-color: #888;
+	  color: white;
+	}
+
+	/* Submenu Items */
+	.submenu {
+	  display: none;
+	}
+	
+	.submenu i {
+	  color: #444;
+	  font-family: Monaco;
+	  font-size: 18px;
+	  padding-left: 3px;
+	  letter-spacing: 1px;
+	}
+	
+	.menu-item {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  padding: 12px 0;
+	  line-height: 1.8;
+	}
+	
+	.menu-item img {
+	  width: 80px;
+	  height: 80px;
+	  object-fit: cover;
+	  border-radius: 8px;
+	  margin-left: 16px;
+	}
+	
+	/* Sets up a small inner layout block for the graphic and label */
+	.menu-image-wrapper {
+	  display: flex;
+	  flex-direction: column;  /* Stacks items vertically */
+	  align-items: center;      /* Centers label perfectly beneath the image */
+	  text-align: center;
+	  margin-left: 16px;       /* Preserves your original image separation gap */
+	}
+
+	/* Enhances the label layout without disrupting neighboring elements */
+	.menu-item .ai-image-label {
+	  font-size: 11px;         /* Slightly smaller to look like a subtle caption */
+	  color: #888;
+	  margin-top: 6px;         /* Controls the direct vertical gap beneath the image */
+	  margin-left: 0px;
+	  font-family: Monaco;
+	  line-height: 1.3;
+	  max-width: 110px;
+	}
+	
+	.menu-item h1 {
+	  font-size: 20px;
+	  font-family: Playfair Display;
+	  color: #444;
+	}
+	
+	.menu-item p {
+	  color: #777;
+	  font-size: 18px;
+	  font-family: Monaco;
+	}
+	
+	.menu-item ul {
+	  color: #777;
+	  font-size: 18px;
+	  font-family: Monaco;
+	  padding-left: 30px;
+	  line-height: 1.5;
+	}
+	
+	hr {
+	  border: none;
+	  border-top: 1px solid #ddd;
+	  margin: 12px 0;
+	}
+	
+	.tag {
+	  display: inline-block;
+	  padding: 3px 12px;
+	  font-size: 17px;
+	  font-family: Playfair Display;
+	  font-weight: 300;
+	  border-radius: 8px;
+	  margin-left: 8px;
+	}
+	
+	.tag.red {
+	  background-color: red;
+	  color: white;
+	}
+	
+	.tag.grey {
+	  background-color: grey;
+	  color: white;
+	}
+	
+	.tag.green {
+	  background-color: green;
+	  color: white;
+	}
+	
+	.tag.purple {
+	  background-color: purple;
+	  color: white;
+	}
+	
+	/* ----------------- Disclaimer ------------------- */
+	.pre-disclaimer {
+	  font-size: 15px;
+	  color: white;
+	  font-family: Monaco;
+	  margin-left: 20px;
+	  margin-bottom: 10px;
+	}
+	
+	.disclaimer {
+	  background-color: #f2f2f2;
+	  padding: 20px 40px;
+	}
+	
+	.disclaimer_txt {
+	  font-family: Monaco;
+	  color: #444;
+	}
+	
+	/* =================== RESPONSIVE STYLES ===================
+	   Original file had no @media queries at all, so nothing below
+	   this point adapted for smaller screens. These breakpoints were
+	   added to fix that: the 7-tab / 6-subtab bars scroll horizontally
+	   instead of squeezing, menu items stack on phones, and the desktop
+	   nav collapses into a hamburger + dropdown. */
+ 
+	/* Background-attachment:fixed is expensive/buggy on mobile browsers */
+	@media (max-width: 900px) {
+	  html, body {
+	    background-attachment: scroll;
+	  }
+	}
+ 
+	/* Large tablets / small laptops */
+	@media (max-width: 1200px) {
+	  .menu-section {
+	    margin-left: 40px;
+	    margin-right: 40px;
+	    width: auto;
+	    padding: 40px 30px;
+	  }
+	}
+ 
+	/* Tablets */
+	@media (max-width: 900px) {
+	  nav {
+	    padding: 15px 20px;
+	    flex-wrap: wrap;
+	  }
+ 
+	  .hamburger {
+	    display: flex;
+	  }
+ 
+	  /* Mobile version of #navLinks (desktop rule is up near the top of the stylesheet). Starts collapsed (max-height: 0, opacity: 0) and the .open class below animates it open — 
+	  see script at bottom of page for the class toggle. Background color intentionally matches nav's own background (rgba(0,0,0,0.7)) so the dropdown reads as part of the nav bar 
+	  rather than a separate panel. */
+	  
+	  .nav-links {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    position: absolute;
+	    top: 100%;
+	    left: 0;
+	    width: 100%;
+	    background: rgba(0, 0, 0, 0.7);
+		border-top: 1px solid white;
+		border-bottom: 1px solid white;
+	    gap: 15px;
+	    z-index: 15;
+	    max-height: 0;
+	    overflow: hidden;
+	    opacity: 0;
+	    transition: max-height 0.4s ease, opacity 0.35s ease, padding 0.4s ease;
+	  }
+ 
+	  /* Added by JS when the hamburger is clicked — expanding max-height is what creates the "slide down" reveal effect. 500px (vs. 400px on Home.HTML) because this nav has 6 
+	  links + social icons. */
+	  
+	  .nav-links.open {
+	    max-height: 500px;
+	    opacity: 1;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	  }
+ 
+	  nav ul {
+	    flex-direction: column;
+	    gap: 15px;
+	    width: 100%;
+	  }
+	  
+	  nav ul li {
+	    padding-bottom: 12px;
+		text-align: center;
+	    border-bottom: 1px solid white;
+	  }
+	  
+	  nav ul li a {
+	    font-size: 18px;
+	  }
+ 
+	  .social-icons {
+	    margin-left: 0;
+	  }
+ 
+	  .menu-section {
+	    margin: 40px 15px;
+	    padding: 30px 20px;
+	  }
+ 
+	  .menu-title {
+	    font-size: 26px;
+	  }
+ 
+	  /* Tabs scroll horizontally instead of squeezing 7 into one row */
+	  .tab-row {
+	    overflow-x: auto;
+	    -webkit-overflow-scrolling: touch;
+	  }
+ 
+	  .tab-row .tablink {
+	    flex: 0 0 auto;
+	    width: auto;
+	    min-width: 120px;
+	    font-size: 15px;
+	    padding: 12px 16px;
+	  }
+ 
+	  .subtab-bar {
+	    overflow-x: auto;
+	    -webkit-overflow-scrolling: touch;
+	  }
+ 
+	  .subtab-bar button {
+	    flex: 0 0 auto;
+	    min-width: 110px;
+	    font-size: 15px;
+	    padding: 10px 14px;
+	  }
+ 
+	  .menu-item {
+	    flex-wrap: wrap;
+	  }
+ 
+	  .menu-item h1 {
+	    font-size: 17px;
+	  }
+ 
+	  .menu-item p,
+	  .menu-item ul {
+	    font-size: 15px;
+	  }
+ 
+	  .menu-item img {
+	    width: 64px;
+	    height: 64px;
+	  }
+ 
+	  .tag {
+	    font-size: 13px;
+	    padding: 2px 8px;
+	  }
+	}
+ 
+	/* Phones */
+	@media (max-width: 480px) {
+	  .menu-section {
+	    margin: 25px 8px;
+	    padding: 20px 12px;
+	  }
+ 
+	  .menu-title {
+	    font-size: 22px;
+	    margin-bottom: 20px;
+	  }
+ 
+	  nav .restaurant-name {
+	    font-size: 16px;
+	  }
+ 
+	  /* Stack image below the item text on very small screens */
+	  .menu-item {
+	    flex-direction: column;
+	    align-items: flex-start;
+	  }
+ 
+	  .menu-item .menu-image-wrapper {
+	    margin-left: 0;
+	    margin-top: 10px;
+	    align-self: center;
+	  }
+ 
+	  .menu-item h1 {
+	    font-size: 16px;
+	  }
+ 
+	  .menu-item p,
+	  .menu-item ul {
+	    font-size: 14px;
+	  }
+ 
+	  .pre-disclaimer {
+	    margin-left: 10px;
+	    font-size: 13px;
+	  }
+ 
+	  .disclaimer {
+	    padding: 15px 20px;
+	  }
+ 
+	  .disclaimer_txt p {
+	    font-size: 13px;
+	  }
+	}
+   </style>
+  </head>
+  <body>
+   <!-- Header Section Starts -->
+   <div style="background:#f4f4f4; padding:10px; text-align:center; font-family:Monaco; font-size:14px; z-index: 10;">
+	  ⚠️ This menu is part of a fictional restaurant website created for educational and portfolio purposes only. Menu items, prices, images, branding, and restaurant information 
+	  are fictional and do not represent a real business.
+   </div>
+   
+    <nav>
+	 <div class="first-part">
+	 <a href="Home.HTML">
+	  <img src="BOTANIC BISTRO2.png" class="logo" height="60" width="80" alt="Botanic Bistro logo">
+	 </a>
+	  <h2 class="restaurant-name">BOTANIC BLOOM BISTRO</h2>
+	 </div>
+      <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+       <span></span><span></span><span></span>
+      </div>
+      <div class="nav-links" id="navLinks">
+       <ul>
+	     <li><a href="Home.HTML">Home</a></li>
+         <li><a href="#about">About</a></li>
+         <li><a href="#hours">Hours</a></li>
+         <li><a href="#contact">Contact</a></li>
+         <li><a href="Menu.HTML">Menu</a></li>
+         <li><a href="#">Visit</a></li>
+        </ul>
+        <div class="social-icons">
+         <a href="#" class="fab fa-facebook-f"></a>
+         <a href="#" class="fab fa-instagram"></a> 
+         <a href="#" class="fab fa-twitter"></a>
+        </div>
+      </div>
+    </nav>
+   <!-- Header Section Ends -->
+   
+   <!-- Menu Section Starts -->
+	<div class="menu-section">
+	 <h2 class="menu-title">OUR MENU</h2>
+	  <!-- Main Tabs -->
+	  <div class="tab-row">
+		<div class="tablink active" onclick="openMain(event, 'DrinkSection')">Drinks</div>
+		<div class="tablink" onclick="openMain(event, 'AppetizerSection')">Appetizers</div>
+		<div class="tablink" onclick="openMain(event, 'BreakfastSection')">Breakfast</div>
+		<div class="tablink" onclick="openMain(event, 'LunchSection')">Lunch</div>
+		<div class="tablink" onclick="openMain(event, 'DinnerSection')">Dinner</div>
+		<div class="tablink" onclick="openMain(event, 'DessertSection')">Dessert</div>
+		<div class="tablink" onclick="openMain(event, 'KidsSection')">Kids' Menu</div>
+	  </div>
+
+	  <div id="DrinkSection" class="menu" style="display:block;">
+		<div class="subtab-bar">
+		  <button class="active" onclick="openSub(event, 'Alcoholic')">Alcoholic</button>
+		  <button onclick="openSub(event, 'Non-Alcoholic')">Non-Alcoholic</button>
+		  <button onclick="openSub(event, 'Hot')">Hot Drinks</button>
+		  <button onclick="openSub(event, 'Smoothies')">Smoothies</button>
+		  <button onclick="openSub(event, 'Cocktails')">Cocktails</button>
+		  <button onclick="openSub(event, 'Special')">Special</button>
+		</div>
+
+		<div id="Alcoholic" class="submenu" style="display:block;">
+		  <div class="menu-item">
+			<div>
+			  <h1>The Summit Sour <span class="tag grey">Seasonal</span> <span class="tag purple">Popular!</span></h1>
+			  <p>A bright whiskey sour with a dash of orange bitters for a bold, crisp finish | $11.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/summit.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Harbor Lights Martini <span class="tag purple">Popular!</span></h1>
+			  <p>Vodka, dry vermouth, and a twist of lemon for a clean, timeless sip | $12.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/harbor.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Velvet Sunset <span class="tag purple">Popular!</span></h1>
+			  <p>Rum, pineapple, and grenadine layered for a smooth tropical escape | $11.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/velvet.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>      
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chardonnay </h1>
+			  <p>A bright whiskey sour with a dash of orange bitters for a bold, crisp finish | $9.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/chardonnay.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pinot Grigio</h1>
+			  <p>Crisp and refreshing with notes of green apple and citrus | $8.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/pinot.avif">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Merlot <span class="tag green">New!</span></h1>
+			  <p>Smooth, medium-bodied, with ripe plum and soft tannins | $9.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/merlot.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Craft Pale Ale</h1>
+			  <p>Hoppy and citrus-forward with a refreshing bitterness | $7.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/craft.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Amber Lager</h1>
+			  <p>Smooth malt character with a touch of caramel | $8.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/amber.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Stout <span class="tag green">New!</span></h1>
+			  <p>Rich and velvety with coffee and chocolate undertones | $7.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/stout.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Non-Alcoholic" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Orange Juice</h1>
+			  <p>Bright and tangy with natural sweetness | $5.00</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Apple Juice</h1>
+			  <p>Crisp and lightly tart with a mellow finish | $4.50</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Passion Fruit Juice</h1>
+			  <p>Sweet-tart tropical flavor with a fragrant aroma | $5.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/passion fruit.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Sorrel Juice <span class="tag grey">Seasonal</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Caribbean hibiscus brew with hints of ginger and spice | $6.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/sorrel.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coca-Cola</h1>
+			  <p>Classic cola taste | $3.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/cola.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Diet Coke</h1>
+			  <p>Classic cola taste | $3.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/diet.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Sprite</h1>
+			  <p>Lemon-lime soda, light and refreshing | $3.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/sprite.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Ginger Ale <span class="tag purple">Popular!</span></h1>
+			  <p>Smooth, spiced ginger flavor | $4.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/ginger.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Club Soda</h1>
+			  <p>Sparkling and clean, ideal for mixing or sipping | $3.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/club.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Lemonade</h1>
+			  <p>Fresh-squeezed lemon juice with cane sugar | $5.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/lemonade.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Iced Tea</h1>
+			  <p>Unsweetened black tea with optional lemon wedge | $4.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/iced tea.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Hot" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Fresh Brewed Coffee</h1>
+			  <p>Smooth, medium-roast house blend | $3.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/coffee.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Espresso</h1>
+			  <p>Rich, concentrated single shot | $3.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/espresso.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Double Espresso</h1>
+			  <p>Bold double shot for extra kick | $4.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/double.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cappucino <span class="tag purple">Popular!</span></h1>
+			  <p>Espresso with velvety steamed milk and foam | $5.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/cappucino.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Latte</h1>
+			  <p> Espresso blended with creamy steamed milk | $5.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/latte.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mocha Latte</h1>
+			  <p>Chocolate-infused latte topped with whipped cream | $5.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/mocha.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mocha Pumpkin Spice Latte <span class="tag purple">Popular!</span></h1>
+			  <p> Espresso, steamed milk, chocolate, and pumpkin spice syrup topped with whipped cream and a dusting of cinnamon | $6.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/pumpkin.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Matcha Latte <span class="tag green">New!</span></h1>
+			  <p>Japanese green tea powder whisked with steamed milk | $5.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/matcha.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chai Tea Latte <span class="tag green">New!</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Spiced black tea blended with steamed milk | $5.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/chai.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Caramel Macchiato</h1>
+			  <p>Espresso, steamed milk, and caramel drizzle | $5.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/caramel.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Classic Hot Chocolate</h1>
+			  <p>Creamy cocoa topped with whipped cream | $4.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/hot.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Deluxe Hot Chocolate <span class="tag purple">Popular!</span></h1>
+			  <p>Rich cocoa with marshmallows and chocolate shavings | $5.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/deluxe.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Spiced Hot Chocolate</h1>
+			  <p>Cocoa with cinnamon and a hint of chili for warmth | $5.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/spiced.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cacao Tea <span class="tag grey">Seasonal</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Brewed from roasted cacao husks, offering a naturally chocolatey aroma with a smooth, earthy finish | $4.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/cacao.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Earl Grey</h1>
+			  <p>Black tea with bergamot citrus notes | $3.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/earl.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Green Tea</h1>
+			  <p>Light, earthy, and refreshing | $3.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/green.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chamomile Tea</h1>
+			  <p>Floral and calming, caffeine-free | $3.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/chamomile.avif">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Peppermint Tea <span class="tag purple">Popular!</span></h1>
+			  <p>Cool and soothing, caffeine-free | $3.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/peppermint.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Hot Apple Cider <span class="tag green">New!</span> <span class="tag grey">Seasonal</span></h1>
+			  <p>Spiced cider with cinnamon stick garnish | $5.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/cider.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Smoothies" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Tropic Bliss</h1>
+			  <p>Mango, pineapple, banana, and orange juice for a bright, sunny blend | $7.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/tropical.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Berry Blast <span class="tag purple">Popular!</span></h1>
+			  <p>Strawberries, blueberries, raspberries, and apple juice | $7.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/berry.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Green Harmony</h1>
+			  <p>Spinach, kale, green apple, banana, and coconut water | $8.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/green.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Peach Sunrise</h1>
+			  <p>Peaches, banana, and a splash of mango nectar | $7.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/peach.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Strawberry Banana Classic <span class="tag purple">Popular!</span></h1>
+			  <p>The timeless favorite, creamy and smooth | $7.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/strawberry banana.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pawpaw Smoothie <span class="tag purple">Popular!</span></h1>
+			  <p>Fresh papaya (pawpaw), banana, mango, and a splash of orange juice for a creamy tropical blend | $8.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/pawpaw.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Passion Paradise</h1>
+			  <p>Passion fruit, pineapple, mango, and coconut milk | $8.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/passion.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chocolate Protein Shake</h1>
+			  <p>Cocoa, banana, almond milk, and protein boost | $8.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/chocolate.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Caribbean Sorrel Smoothie <span class="tag green">New!</span> <span class="tag grey">Seasonal</span></h1>
+			  <p>Hibiscus (sorrel), ginger, pineapple, and lime for a tart-sweet twist | $8.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/sorrel smoothie.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		<div id="Cocktails" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>City Bloom Spritz <span class="tag purple">Popular!</span></h1>
+			  <p>Prosecco, elderflower liqueur, and soda water with lime | $11.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/city.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Passion & Lime Mojito</h1>
+			  <p>White rum, passion fruit puree, fresh mint, lime, and soda | $12.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/passion and lime.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Berry Smash</h1>
+			  <p>Vodka, muddled berries, lemon juice, and mint | $11.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/berry smash.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Spiced Caribbean Mule</h1>
+			  <p>Dark rum, ginger beer, lime juice, and a hint of allspice | $12.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/spiced.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Sorrel Royale Surprise<span class="tag grey">Seasonal</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Sparkling wine, sorrel syrup, and ginger for a Caribbean twist | $13.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/royale.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		<div id="Special" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Classic Vanilla Bean Shake <span class="tag purple">Popular!</span></h1>
+			  <p>Rich, creamy vanilla with real bean specks | $6.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/vanilla.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Double Chocolate Fudge Shake <span class="tag purple">Popular!</span></h1>
+			  <p>Decadent chocolate ice cream, fudge swirl, and whipped cream | $7.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/fudge.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Strawberry Cream Shake</h1>
+			  <p>Fresh strawberries blended into creamy perfection | $6.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/cream.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Salted Caramel Shake</h1>
+			  <p>Sweet caramel balanced with a hint of sea salt | $7.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/caramel.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cookies & Cream Crush</h1>
+			  <p>Vanilla ice cream, crushed chocolate cookies, and whipped cream | $7.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/cookies.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Banana Split Shake <span class="tag green">New!</span></h1>
+			  <p>Banana, strawberry, chocolate, and a cherry on top | $7.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/banana.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Peanut Butter Cup Shake <span class="tag green">New!</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Peanut butter, chocolate, and vanilla ice cream | $7.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/peanut.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Tiramisu Frappe <span class="tag green">New!</span></h1>
+			  <p>Coffee, cocoa, mascarpone cream, and a dusting of cocoa powder | $8.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/tiramisu.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Iced Affogato <span class="tag green">New!</span></h1>
+			  <p>Vanilla ice cream drowned in a shot of hot espresso | $6.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/iced.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Frozen Hot Chocolate</h1>
+			  <p>Blended cocoa with whipped cream and chocolate drizzle | $6.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/frozen.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Creamsicle Float</h1>
+			  <p>Orange soda with vanilla ice cream | $6.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/creamsicle.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Root Beer Float <span class="tag purple">Popular!</span></h1>
+			  <p>Classic root beer topped with creamy vanilla ice cream | $6.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="drinks/root beer.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+	  </div>
+
+	  <div id="AppetizerSection" class="menu">
+		<div class="subtab-bar">
+		  <button class="active" onclick="openSub(event, 'Soups')">Soups</button>
+		  <button onclick="openSub(event, 'Salads')">Salads</button>
+		  <button onclick="openSub(event, 'FingerFoods')">Finger Foods</button>
+		  <button onclick="openSub(event, 'SeafoodStarters')">Seafood Starters</button>
+		  <button onclick="openSub(event, 'Breads')">Bread & Flatbreads</button>
+		  <button onclick="openSub(event, 'Stuffed')">Stuffed & Wrapped Bites</button>
+		</div>
+
+		<div id="Soups" class="submenu" style="display:block;"><br>
+		 <p><i>*served with artisan bread or crackers*</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pumpkin Soup <span class="tag purple">Popular!</span></h1>
+			  <p>Velvety roasted pumpkin purée with warm spices and a hint of cream | $7.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/pumpkin.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Callaloo Soup <span class="tag purple">Popular!</span></h1>
+			  <p>Caribbean-style leafy greens simmered with coconut milk, herbs, and seasonings | $8.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/callaloo.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Tomato Basil Bisque</h1>
+			  <p>Smooth tomato base with fresh basil and a drizzle of olive oil | $7.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/tomato.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Seafood Chowder </h1>
+			  <p>Creamy broth with shrimp, clams, and tender white fish | $9.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/seafood.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Minestrone <span class="tag green">New!</span></h1>
+			  <p>Hearty Italian vegetable soup with beans and pasta in a tomato-herb broth | $7.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/minestrone.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chicken & Wild Rice</h1>
+			  <p>Tender chicken, earthy wild rice, and vegetables in a savory broth | $8.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/chicken.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Butternut Squash & Apple <span class="tag green">New!</span></h1>
+			  <p>Roasted squash with sweet apple and a touch of nutmeg | $7.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/butternut.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pepperpot Soup <span class="tag purple">Popular!</span></h1>
+			  <p>Dark, hearty Guyanese-style stew with callaloo, okra, and slow-simmered meats | $8.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/pepperpot.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Red Peas Soup</h1>
+			  <p>Jamaican red kidney bean soup with coconut milk, dumplings, and smoked meat | $8.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/peas.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+
+		<div id="Salads" class="submenu">
+		 <p><i>served with house-made dressing, add chicken +$4, shrimp +$6, salmon +$8</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Garden Fresh Salad</h1>
+			  <p>Mixed greens, cucumber, tomato, carrots, and red onion with choice of dressing | $8.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/garden.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Classic Caesar Salad</h1>
+			  <p>Romaine lettuce, parmesan, croutons, and Caesar dressing | $9.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/caesar.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Greek Village Salad <span class="tag green">New!</span></h1>
+			  <p>Cucumber, tomato, red onion, olives, and feta with oregano vinaigrette | $10.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/greek.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Caprese Salad</h1>
+			  <p>Fresh mozzarella, ripe tomatoes, and basil drizzled with balsamic glaze | $10.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/caprese.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cobb Salad <span class="tag purple">Popular!</span></h1>
+			  <p>Chopped greens, grilled chicken, bacon, avocado, tomato, egg, and blue cheese dressing | $12.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/cobb.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Tropical Mango Avocado Salad <span class="tag grey">Seasonal</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Mixed greens, fresh mango, avocado, red bell pepper, and lime-cilantro dressing | $11.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/mango.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Caribbean Callaloo Salad</h1>
+			  <p>Lightly blanched callaloo leaves, cherry tomatoes, cucumber, and citrus dressing | $11.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/callaloo salad.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Quinoa & Roasted Vegetable Salad <span class="tag green">New!</span></h1>
+			  <p>Salmon, shrimp, lobster, garlic | $11.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/quinoa.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="FingerFoods" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut Shrimp <span class="tag purple">Popular!</span></h1>
+			  <p>Crispy coconut-breaded shrimp served with sweet chili sauce | $11.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/shrimp.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mini Crab Cakes</h1>
+			  <p>Bite-sized lump crab cakes with zesty remoulade | $13.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/crab.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken Skewers <span class="tag purple">Popular!</span></h1>
+			  <p>Grilled, marinated chicken with Caribbean jerk seasoning and mango chutney | $10.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/jerk chicken.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Vegetable Spring Rolls</h1>
+			  <p>Crispy rolls with mixed vegetables, served with sweet soy dipping sauce | $8.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/spring.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Stuffed Jalapeno Peppers <span class="tag purple">Popular!</span></h1>
+			  <p>Jalapeños filled with cream cheese and cheddar, lightly fried | $9.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/jalapeno.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Bruschetta Trio</h1>
+			  <p>Toasted baguette slices topped with tomato-basil, roasted pepper, and olive tapenade | $8.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/bruschetta.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Plantain Chips & Guacemole</h1>
+			  <p>Crispy fried plantains served with creamy guacamole | $8.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/plantain.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mozzarella Sticks <span class="tag green">New!</span></h1>
+			  <p>Golden-fried mozzarella served with marinara sauce | $8.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/mozzarella.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="SeafoodStarters" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Shrimp Cocktail <span class="tag purple">Popular!</span></h1>
+			  <p>Chilled jumbo shrimp with tangy cocktail sauce | $12.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/cocktail.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Seared Scallops</h1>
+			  <p>Pan-seared sea scallops with garlic butter and fresh herbs | $14.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/scallops.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Calamari Fritti</h1>
+			  <p>Lightly breaded calamari with lemon aioli and marinara sauce | $11.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/calamari.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Smoked Salmon Crostini <span class="tag grey">Seasonal</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Toasted baguette slices topped with cream cheese, smoked salmon, and capers | $12.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/salmon.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Island Conch Fritters</h1>
+			  <p>Caribbean-style fried conch balls with spicy dipping sauce | $10.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/conch.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fish Ceviche</h1>
+			  <p>Fresh white fish cured in lime juice with onion, cilantro, and chili | $12.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/ceviche.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Breads" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Herb & Garlic Focaccia</h1>
+			  <p>Fresh-baked focaccia drizzled with olive oil and sprinkled with sea salt and herbs | $6.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/foccacia.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cheesy Garlic Bread <span class="tag purple">Popular!</span></h1>
+			  <p>Toasted baguette with garlic butter and melted mozzarella | $7.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/cheesy.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Caribbean Johnny Cakes <span class="tag purple">Popular!</span></h1>
+			  <p>Golden-fried Caribbean-style bread served with honey butter | $6.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/johnny.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pita Bread with Hummus Trio</h1>
+			  <p>Warm pita with classic, roasted red pepper, and beet hummus | $8.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/pita.avif">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Plantain Flatbread <span class="tag purple">Popular!</span></h1>
+			  <p>Savory plantain-based crust topped with roasted vegetables and cheese | $9.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/flatbread.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Margheritta Flatbread <span class="tag green">New!</span></h1>
+			  <p>Tomato, basil, and mozzarella with a drizzle of balsamic glaze | $10.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/margherita.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mediterranean Flatbread</h1>
+			  <p>Olive tapenade, roasted peppers, artichokes, feta, and arugula | $11.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/mediterranean.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Spinach & Feta Flatbread</h1>
+			  <p>Baby spinach, crumbled feta, caramelized onions, and olive oil | $11.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/spinach.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Sea Salt Pretzel Bites <span class="tag green">New!</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Soft-baked pretzel pieces with mustard and cheese dips | $7.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/pretzel.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Stuffed" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Spinach & Feta Phyllo Pockets <span class="tag green">New!</span></h1>
+			  <p>Crisp, buttery phyllo pastry filled with spinach, feta, and herbs | $8.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/feta.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Caribbean Crab Rangoons</h1>
+			  <p>Wonton wrappers filled with crab, cream cheese, and mild spices, served with a sweet chili sauce | $9.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/rangoons.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Stuffed Mini Bell Pepper <span class="tag purple">Popular!</span></h1>
+			  <p>Roasted mini peppers filled with herbed goat cheese and drizzled with honey | $8.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/bell peppers.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken Lettuce Wraps</h1>
+			  <p>Spicy jerk-marinated chicken with pineapple salsa in crisp lettuce cups | $9.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/wraps.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Caprese Skewers</h1>
+			  <p>Cherry tomatoes, mozzarella pearls, and basil, drizzled with balsamic reduction | $7.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/skewers.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Stuffed Plantain Cups <span class="tag purple">Popular!</span></h1>
+			  <p>Crispy plantain cups filled with pulled pork and tropical slaw | $9.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/cups.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Dolmas (Stuffed Grape Leaves) <span class="tag grey">Seasonal</span></h1>
+			  <p>Grape leaves filled with seasoned rice, herbs, and lemon | $8.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/dolmas.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Shrimp Summer Rolls</h1>
+			  <p>Rice paper rolls with shrimp, fresh herbs, and vegetables, served with peanut dipping sauce | $10.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/rolls.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+	  </div>
+	  
+	  <div id="BreakfastSection" class="menu">
+		<div class="subtab-bar">
+		  <button class="active" onclick="openSub(event, 'Eggs')">Eggs & Omelettes</button>
+		  <button onclick="openSub(event, 'Pancakes')">Pancakes & Waffles</button>
+		  <button onclick="openSub(event, 'Bowls')">Breakfast Bowls & Plates</button>
+		  <button onclick="openSub(event, 'CaribbeanSpecials')">Caribbean Morning Specials</button>
+		  <button onclick="openSub(event, 'Toast')">Toast & Pastries</button>
+		  <button onclick="openSub(event, 'Add-Ons')">Sides & Add-Ons</button>
+		</div>
+
+		<div id="Eggs" class="submenu" style="display:block;"><br>
+		  <div class="menu-item">
+			<div>
+			  <h1>Two Eggs Any Style</h1>
+			  <p>Served with choice of toast and breakfast potatoes | $8.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/any style.avif">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Classic Omelette</h1>
+			  <p>Three-egg omelette with cheese and choice of ham, mushrooms, or bell peppers | $9.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/classic.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Western Omelette</h1>
+			  <p>Eggs with ham, bell peppers, onions, and cheddar cheese | $10.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/western.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Spinach & Feta Omelette</h1>
+			  <p>Fresh spinach, feta cheese, and tomatoes | $11.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/spinach.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Callaloo & Saltfish Omelette <span class="tag green">New!</span> <span class="tag grey">Seasonal</span></h1>
+			  <p>Caribbean-style scramble with sautéed callaloo and salted cod | $12.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/callaloo.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Eggs Benedict</h1>
+			  <p>Poached eggs, Canadian bacon on English muffin, topped with hollandaise sauce | $13.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/benedict.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+
+		<div id="Pancakes" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Buttermilk Pancakes (3)</h1>
+			  <p>Served with maple syrup and butter | $8.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/buttermilk.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Blueberry Pancakes</h1>
+			  <p>Pancakes loaded with fresh blueberries, served with syrup | $9.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/blueberry.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chocolate Chip Pancakes <span class="tag purple">Popular!</span></h1>
+			  <p>Sweet pancakes filled with chocolate chips and served with syrup | $9.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/chocolate.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Banana & Walnut Pancakes <span class="tag purple">Popular!</span></h1>
+			  <p>Topped with fresh bananas and toasted walnuts | $9.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/banana.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut & Pineapple Pancakes <span class="tag green">New!</span></h1>
+			  <p>Fluffy pancakes infused with coconut, topped with pineapple compote | $10.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/pineapple.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Tropical Fruit Pancakes</h1>
+			  <p>Pancakes topped with mango, pineapple, and passion fruit syrup | $10.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/tropical.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Buttermilk Waffles</h1>
+			  <p>Crispy outside, fluffy inside, served with butter and maple syrup | $8.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/waffles.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Blueberry Waffles</h1>
+			  <p>Waffles studded with fresh blueberries, served with syrup | $10.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/blueberry waffle.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Belgian Waffles <span class="tag purple">Popular!</span></h1>
+			  <p>Served with whipped cream and fresh berries | $9.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/belgian.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pumpkin Spice Waffles <span class="tag green">New!</span></h1>
+			  <p>Warm waffle with pumpkin spice and whipped cream | $9.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/pumpkin.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Bowls" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Avocado Toast Bowl <span class="tag purple">Popular!</span></h1>
+			  <p>Toasted artisan bread topped with smashed avocado, cherry tomatoes, and a poached egg | $11.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/avocado.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Caribbean Breakfast Plate</h1>
+			  <p>Fried dumplings, saltfish, callaloo, fried plantains, and a fried egg | $13.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/caribbean.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Oatmeal & Fresh Fruit Bowl</h1>
+			  <p>Warm oats with seasonal fruit and honey | $7.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/oatmeal.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Breakfast Grain Bowl</h1>
+			  <p>Quinoa, roasted veggies, spinach, and a sunny-side-up egg | $11.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/grain.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Smoked Salmon Plate <span class="tag grey">Seasonal</span></h1>
+			  <p>Smoked salmon, cream cheese, capers, red onion, and toasted bagel slices | $14.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/smoked.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="CaribbeanSpecials" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Ackee & Saltfish</h1>
+			  <p>Jamaica’s national dish with sautéed ackee and salted cod, served with fried dumplings or bammy | $13.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/ackee.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fried Dumplings & Callaloo</h1>
+			  <p>Traditional Caribbean fried dough served with sautéed callaloo | $10.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/fried.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Saltfish Fritters</h1>
+			  <p>Crispy salted cod fritters with spicy dipping sauce | $9.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/saltfish.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Plantain & Egg Breakfast</h1>
+			  <p>Fried ripe plantains served with scrambled eggs and avocado | $11.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/plantain.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Toast" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Avocado Toast <span class="tag purple">Popular!</span></h1>
+			  <p>Artisan bread with smashed avocado, olive oil, and chili flakes | $8.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/avocado.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>French Toast <span class="tag purple">Popular!</span></h1>
+			  <p>Thick slices of brioche dipped in spiced egg custard, grilled golden brown, and topped with powdered sugar | $9.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/french.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Butter Croissant</h1>
+			  <p>Flaky, buttery croissant served warm | $4.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/croissant.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chocolate Croissant</h1>
+			  <p>Flaky croissant layered with rich dark chocolate inside | $5.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/choco croissant.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Almond Croissant <span class="tag purple">Popular!</span></h1>
+			  <p>Buttery croissant filled with almond paste and topped with sliced almonds | $5.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/almond.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Ham & Cheese Croissant</h1>
+			  <p>Warm croissant filled with melted ham and Swiss cheese | $6.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/ham.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cinnamon Roll</h1>
+			  <p>Soft roll with cinnamon sugar and cream cheese icing | $5.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/cinnamon.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Sticky Bun</h1>
+			  <p>Sweet roll topped with caramel glaze and pecans | $5.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/sticky.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Honey Bun</h1>
+			  <p>Sweet, soft bun glazed with honey and cinnamon | $5.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/honey.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Banana Bread</h1>
+			  <p>Moist banana bread with walnuts | $4.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/banana bread.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chocolate Chip Muffin</h1>
+			  <p>Moist muffin loaded with chocolate chips | $4.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/muffin.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Blueberry Muffin</h1>
+			  <p>Soft muffin bursting with fresh blueberries | $4.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/blueberry muffin.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Lemon Poppy Seed Muffin</h1>
+			  <p>Zesty lemon muffin with crunchy poppy seeds | $4.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/lemon.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Sourdough Toast with Ricotta & Honey <span class="tag green">New!</span></h1>
+			  <p>Thick-cut sourdough topped with whipped ricotta and a drizzle of honey | $6.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/sourdough.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Peach Danish <span class="tag green">New!</span></h1>
+			  <p>Flaky pastry filled with peach compote and cream cheese | $5.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/peach.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Apple Turnover <span class="tag purple">Popular!</span></h1>
+			  <p>Flaky pastry filled with warm cinnamon-spiced apple filling | $5.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/apple.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cherry Turnover <span class="tag grey">Seasonal</span></h1>
+			  <p>Buttery pastry stuffed with tart cherry compote | $5.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/cherry.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Spinach & Cheese Turnover</h1>
+			  <p>Golden puff pastry filled with sautéed spinach and melted cheese | $6.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="breakfast/turnover.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Add-Ons" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Crispy Bacon</h1>
+			  <p>$4.50</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Breakfast Sausage Link</h1>
+			  <p>$4.50</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Breakfast Potatoes</h1>
+			  <p>$4.00</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fresh Fruit Cup</h1>
+			  <p>$4.00</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fried Plantain</h1>
+			  <p>$4.50</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+	  </div>
+	  
+	  <div id="LunchSection" class="menu">
+		<div class="subtab-bar">
+		  <button class="active" onclick="openSub(event, 'Pizzas')">Pizzas</button>
+		  <button onclick="openSub(event, 'Pasta')">Pasta</button>
+		  <button onclick="openSub(event, 'Sandwiches')">Sandwiches & Wraps</button>
+		  <button onclick="openSub(event, 'SeafoodMains')">Seafood Mains</button>
+		  <button onclick="openSub(event, 'Flavors')">Caribbean Flavors</button>
+		  <button onclick="openSub(event, 'fingerFoods')">Finger Foods</button>
+		  <button onclick="openSub(event, 'Accompaniments')">Sides</button>
+		</div>
+
+		<div id="Pizzas" class="submenu" style="display:block;"><br>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cheese Pizza</h1>
+			  <p> Classic mozzarella and tomato sauce on a personal crust | $11.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/cheese.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pepperoni Pizza</h1>
+			  <p>Cheese pizza topped with kid-sized pepperoni rounds | $12.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/pepperoni.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Veggie Pizza</h1>
+			  <p>Tomato, mozzarella, and mild veggies like sweet peppers and mushrooms | $12.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/veggie.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Margherita Pizza <span class="tag purple">Popular!</span></h1>
+			  <p>Fresh mozzarella, tomato slices, basil, olive oil drizzle | $12.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/margherita.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>BBQ Chicken Pizza</h1>
+			  <p>BBQ sauce base, grilled chicken, red onions, cheddar, mozzarella, cilantro | $14.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/bbq.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Tropical Paradise Pizza</h1>
+			  <p>Pineapple, ham, mozzarella, tomato sauce (optional jalapeños) | $14.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/tropical.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Seafood Island Pizza</h1>
+			  <p>Shrimp, calamari, fresh herbs, mozzarella, garlic cream sauce, and a squeeze of lime | $16.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/seafood.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken Flatbread <span class="tag red">Hot!</span> <span class="tag purple">Popular!</span></h1>
+			  <p> Mild jerk-seasoned chicken with cheese on a personal flatbread crust | $14.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/jerk chicken.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mediterranean Flatbread</h1>
+			  <p>Olive tapenade, roasted peppers, artichokes, feta, and arugula | $13.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/mediterranean.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Callaloo & Feta Flatbread</h1>
+			  <p>Sautéed Caribbean callaloo, crumbled feta, sweet peppers, mozzarella, and a hint of nutmeg | $14.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/callaloo.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Spicy Plantain & Chorizo Flatbread <span class="tag red">Hot!</span></h1>
+			  <p>Sweet fried plantains, spicy chorizo, mozzarella, and caramelized onions | $14.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/spicy.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+
+		<div id="Pasta" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Classic Spaghetti Bolognese</h1>
+			  <p>Slow-simmered beef ragu, garlic, tomato sauce, parmesan | $14.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/spaghetti.jpeg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fettucine Alfredo <span class="tag purple">Popular!</span></h1>
+			  <p>Creamy parmesan sauce, butter, fettuccine. Add chicken or shrimp for extra | $14.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/fettuccine.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pesto Penne</h1>
+			  <p>Basil pesto, cherry tomatoes, toasted pine nuts, parmesan | $14.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/pesto.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Lasagna al Forno</h1>
+			  <p>Layered pasta, beef ragu, ricotta, mozzarella, tomato sauce, baked golden | $15.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/lasagna.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Seafood Linguine</h1>
+			  <p>Shrimp, mussels, calamari, garlic white wine sauce | $18.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/seafood.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>		  
+		  <div class="menu-item">
+			<div>
+			  <h1>Rasta Pasta <span class="tag purple">Popular!</span></h1>
+			  <p>Fettuccine tossed with jerk-seasoned chicken, bell peppers, creamy Caribbean-spiced sauce | $15.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/rasta.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Callaloo & Shrimp Pasta</h1>
+			  <p>Sautéed callaloo, shrimp, garlic cream sauce over penne | $16.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/callaloo.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Curry Chicken Penne <span class="tag purple">Popular!</span></h1>
+			  <p>Mild Caribbean curry sauce, chicken, sweet peppers, coconut cream | $15.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/curry.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Spicy Plantain & Chorizo Linguine</h1>
+			  <p>Pan-fried ripe plantains, spicy chorizo, garlic oil, fresh herbs | $15.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/chorizo.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chicken & Mushroom Alfredo Bake</h1>
+			  <p>Baked penne with creamy alfredo, mushrooms, grilled chicken, mozzarella topping | $15.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/mushroom.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mac & Cheese Supreme</h1>
+			  <p>Three-cheese blend, elbow pasta, breadcrumb crust. Add bacon or lobster for extra | $13.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/mac and cheese.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Sandwiches" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Cuban Mojo Pork Sandwich</h1>
+			  <p>Slow roasted pork, ham, Swiss cheese, pickles, mustard on pressed bread | $13.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/cuban.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Classic Club Sandwich</h1>
+			  <p>Triple-decker with turkey, ham, bacon, lettuce, tomato, mayo, toasted bread | $12.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/club.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Grilled Chicken Pesto Panini</h1>
+			  <p>Grilled chicken breast, basil pesto, mozzarella, roasted tomatoes, pressed ciabatta | $13.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/grilled.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Tuna Melt</h1>
+			  <p>Tuna salad, cheddar cheese, grilled sourdough | $12.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/tuna.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pulled BBQ Pork Sandwich <span class="tag purple">Popular!</span></h1>
+			  <p>Slow-cooked pork, tangy BBQ sauce, coleslaw, toasted brioche bun | $13.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/pulled.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken Sandwich <span class="tag red">Hot!</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Jerk-marinated chicken breast, grilled pineapple, lettuce, spicy mayo, brioche bun | $13.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/jerk.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fried Fish Sandwich</h1>
+			  <p>Crispy fish filet, lettuce, tomato, tartar sauce, soft roll | $14.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/fried.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken Wrap <span class="tag red">Hot!</span></h1>
+			  <p>Spicy jerk chicken, slaw, pineapple salsa | $14.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/wrap.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chicken Caesar Wrap <span class="tag purple">Popular!</span></h1>
+			  <p>Grilled chicken, romaine, parmesan, Caesar dressing, flour tortilla | $12.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/caesar.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Buffalo Chicken Wrap <span class="tag red">Hot!</span></h1>
+			  <p>Crispy buffalo chicken tenders, lettuce, tomato, ranch dressing | $12.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/buffalo.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Grilled Veggie & Hummus Wrap</h1>
+			  <p>Zucchini, peppers, mushrooms, spinach, hummus, whole wheat tortilla | $12.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/grilled.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Curried Chickpea Roti Wrap <span class="tag green">New!</span></h1>
+			  <p>Caribbean curry chickpeas, potatoes, herbs, wrapped in soft roti | $12.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/chickpea.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mediterranean Falafel Wrap <span class="tag green">New!</span></h1>
+			  <p>Falafel, tzatziki, cucumber, tomato, lettuce, wrapped in pita | $12.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/falafel.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut Shrimp Wrap <span class="tag green">New!</span></h1>
+			  <p>Crispy coconut-battered shrimp, mango slaw, sweet chili aioli | $14.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/coconut.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cheeseburger</h1>
+			  <p>Vegan patty, lettuce, tomato, avocado spread | $14.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/cheese.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Plant-Based Burger</h1>
+			  <p>Vegan patty, lettuce, tomato, avocado spread | $14.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/plant.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>BBQ Bacon Burger <span class="tag purple">Popular!</span></h1>
+			  <p>Beef patty, crispy bacon, BBQ sauce, cheddar | $15.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/bacon.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Turkey Burger</h1>
+			  <p> Spiced turkey patty, mango chutney, lettuce | $14.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/turkey.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="SeafoodMains" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Grilled Mahi-Mahi with Mango Salsa <span class="tag purple">Popular!</span></h1>
+			  <p>Served with rice and sautéed vegetables | $18.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/mahi.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Garlic Butter Shrimp Skillet <span class="tag purple">Popular!</span></h1>
+			  <p>Served with toasted bread | $17.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/shrimp.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Caribbean Fish Tacos</h1>
+			  <p>Soft tortillas, fresh slaw, lime crema | $14.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/tacos.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Crispy Calamari</h1>
+			  <p>With herbs and chilies | $16.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/calamari.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Grilled Salmon</h1>
+			  <p>Served with lemon butter sauce and seasonal vegetables | $18.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/salmon.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut Curry Shrimp <span class="tag purple">Popular!</span></h1>
+			  <p>Shrimp in coconut curry sauce, served with rice | $17.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/curry.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fish & Chips</h1>
+			  <p>Beer-battered fish, fries, tartar sauce | $15.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/chips.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Steamed Snapper</h1>
+			  <p> Caribbean-style with okra, peppers, and onions | $19.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/snapper.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Flavors" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken with Rice & Peas <span class="tag red">Hot!</span></h1>
+			  <p>Authentic Jamaican jerk chicken, smoky and spicy, served with coconut rice & kidney beans, plus steamed cabbage | $17.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/jerk chicken.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Curry Goat</h1>
+			  <p>Slow-braised goat in a rich Caribbean curry sauce, served with rice, fried plantains, and side salad | $19.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/goat.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Brown Stew Chicken</h1>
+			  <p>Tender chicken simmered in a savory brown gravy with peppers and onions, served with rice & peas | $16.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/stew.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Callaloo & Saltfish</h1>
+			  <p>A savory mix of Caribbean greens and flaked salted cod, served with fried dumplings or bakes | $15.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/saltfish.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Ital Stew</h1>
+			  <p>Plant-based Caribbean stew with pumpkin, sweet potato, okra, and coconut milk, seasoned with fresh herbs | $14.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/ital.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pepperpot Stew <span class="tag red">Hot!</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Rich, slow-cooked beef stew with cassareep, cinnamon, and Caribbean spices, served with rice | $18.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/pepperpot.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Oxtail with Butter Beans <span class="tag grey">Seasonal</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Fall-off-the-bone oxtail slow-braised in a rich gravy with butter beans, served with rice & peas | $22.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/oxtail.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="fingerFoods" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Chicken Wings</h1>
+			  <p>Choice of BBQ, jerk, buffalo, or honey garlic | $10.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/wings.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Beef Tacos</h1>
+			  <p>Seasoned ground beef, lettuce, cheese, salsa | $11.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/beeff.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken Tacos <span class="tag red">Hot!</span></h1>
+			  <p>Jerk chicken, pineapple salsa, slaw | $12.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/jerk tacos.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Loaded Nachos <span class="tag purple">Popular!</span></h1>
+			  <p>Cheese, jalapeños, salsa, sour cream, guacamole (+$3 for chicken or beef) | $11.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/nachos.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fried Plantain Bites <span class="tag purple">Popular!</span></h1>
+			  <p>Sweet plantains with dipping sauce | $8.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/plantains.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>BBQ Chicken Quesadillas</h1>
+			  <p>Grilled tortilla filled with BBQ chicken, cheddar, onions, and peppers, served with sour cream | $10.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/quesadilla.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Stuffed Potato Skins</h1>
+			  <p>Crispy potato halves loaded with cheese, bacon, scallions, and sour cream (vegetarian option available) | $9.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/potato.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Accompaniments" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>French Fries</h1>
+			  <p>$5.50</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Sweet Potato Fries</h1>
+			  <p>$6.25</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mashed Potatoes</h1>
+			  <p>$5.95</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Roasted Vegetables</h1>
+			  <p>$6.50</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Steamed Rice</h1>
+			  <p>$4.75</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Rice & Peas</h1>
+			  <p>$5.95</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mac & Cheese</h1>
+			  <p>$6.95</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coleslaw</h1>
+			  <p>$4.50</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fried Plantain</h1>
+			  <p>$5.75</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Garlic Bread</h1>
+			  <p>$4.95</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Side Salad</h1>
+			  <p>$5.50</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+	  </div>
+	  
+	  <div id="DinnerSection" class="menu">
+		<div class="subtab-bar">
+		  <button class="active" onclick="openSub(event, 'dinnerPizzas')">Pizzas</button>
+		  <button onclick="openSub(event, 'dinnerPasta')">Pasta</button>
+		  <button onclick="openSub(event, 'dinnerSandwiches')">Sandwiches & Wraps</button>
+		  <button onclick="openSub(event, 'dinnerSeafoodMains')">Seafood Mains</button>
+		  <button onclick="openSub(event, 'dinnerFlavors')">Caribbean Flavors</button>
+		  <button onclick="openSub(event, 'dinnerfingerFoods')">Finger Foods</button>
+		  <button onclick="openSub(event, 'dinnerAccompaniments')">Sides</button>
+		</div>
+
+		<div id="dinnerPizzas" class="submenu" style="display:block;"><br>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cheese Pizza</h1>
+			  <p> Classic mozzarella and tomato sauce on a personal crust | $11.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/cheese.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pepperoni Pizza</h1>
+			  <p>Cheese pizza topped with kid-sized pepperoni rounds | $12.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/pepperoni.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Veggie Pizza</h1>
+			  <p>Tomato, mozzarella, and mild veggies like sweet peppers and mushrooms | $12.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/veggie.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Margherita Pizza <span class="tag purple">Popular!</span></h1>
+			  <p>Fresh mozzarella, tomato slices, basil, olive oil drizzle | $12.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/margherita.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>BBQ Chicken Pizza</h1>
+			  <p>BBQ sauce base, grilled chicken, red onions, cheddar, mozzarella, cilantro | $14.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/bbq.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Tropical Paradise Pizza</h1>
+			  <p>Pineapple, ham, mozzarella, tomato sauce (optional jalapeños) | $14.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/tropical.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Seafood Island Pizza</h1>
+			  <p>Shrimp, calamari, fresh herbs, mozzarella, garlic cream sauce, and a squeeze of lime | $16.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/seafood.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken Flatbread <span class="tag red">Hot!</span> <span class="tag purple">Popular!</span></h1>
+			  <p> Mild jerk-seasoned chicken with cheese on a personal flatbread crust | $14.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/jerk chicken.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mediterranean Flatbread</h1>
+			  <p>Olive tapenade, roasted peppers, artichokes, feta, and arugula | $13.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="starters/mediterranean.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Callaloo & Feta Flatbread</h1>
+			  <p>Sautéed Caribbean callaloo, crumbled feta, sweet peppers, mozzarella, and a hint of nutmeg | $14.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/callaloo.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Spicy Plantain & Chorizo Flatbread <span class="tag red">Hot!</span></h1>
+			  <p>Sweet fried plantains, spicy chorizo, mozzarella, and caramelized onions | $14.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/spicy.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+
+		<div id="dinnerPasta" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Classic Spaghetti Bolognese</h1>
+			  <p>Slow-simmered beef ragu, garlic, tomato sauce, parmesan | $14.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/spaghetti.jpeg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fettucine Alfredo</h1>
+			  <p>Creamy parmesan sauce, butter, fettuccine. Add chicken or shrimp for extra | $14.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/fettuccine.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Lobster Alfredo <span class="tag purple">Popular!</span></h1>
+			  <p>Rich cream sauce with fresh lobster meat | $26.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dinner/lobster.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Seafood Linguine</h1>
+			  <p>Shrimp, mussels, calamari, garlic white wine sauce | $18.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/seafood.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Spicy Plantain & Chorizo Linguine</h1>
+			  <p>Pan-fried ripe plantains, spicy chorizo, garlic oil, fresh herbs | $15.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/chorizo.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>          
+		  <div class="menu-item">
+			<div>
+			  <h1>Rasta Pasta </h1>
+			  <p>Fettuccine tossed with jerk-seasoned chicken, bell peppers, creamy Caribbean-spiced sauce | $15.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/rasta.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Oxtail & Pappardelle Pasta <span class="tag purple">Popular!</span></h1>
+			  <p>Slow-braised oxtail ragu over wide ribbons of pasta | $23.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dinner/oxtail.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pumpkin Coconut Curry Pasta</h1>
+			  <p>Creamy Caribbean pumpkin curry over penne | $18.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dinner/pumpkin.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Curry Chicken Penne <span class="tag purple">Popular!</span></h1>
+			  <p>Mild Caribbean curry sauce, chicken, sweet peppers, coconut cream | $15.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/curry.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="dinnerSandwiches" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Cuban Mojo Pork Sandwich</h1>
+			  <p>Slow roasted pork, ham, Swiss cheese, pickles, mustard on pressed bread | $13.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/cuban.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Classic Club Sandwich</h1>
+			  <p>Triple-decker with turkey, ham, bacon, lettuce, tomato, mayo, toasted bread | $12.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/club.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pulled BBQ Pork Sandwich <span class="tag purple">Popular!</span></h1>
+			  <p>Slow-cooked pork, tangy BBQ sauce, coleslaw, toasted brioche bun | $13.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/pulled.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken Sandwich <span class="tag red">Hot!</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Jerk-marinated chicken breast, grilled pineapple, lettuce, spicy mayo, brioche bun | $13.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/jerk.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fried Fish Sandwich</h1>
+			  <p>Crispy fish filet, lettuce, tomato, tartar sauce, soft roll | $14.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/fried.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken Wrap <span class="tag red">Hot!</span></h1>
+			  <p>Spicy jerk chicken, slaw, pineapple salsa | $14.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/wrap.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chicken Caesar Wrap <span class="tag purple">Popular!</span></h1>
+			  <p>Grilled chicken, romaine, parmesan, Caesar dressing, flour tortilla | $12.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/caesar.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Buffalo Chicken Wrap <span class="tag red">Hot!</span></h1>
+			  <p>Crispy buffalo chicken tenders, lettuce, tomato, ranch dressing | $12.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/buffalo.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Grilled Veggie & Hummus Wrap</h1>
+			  <p>Zucchini, peppers, mushrooms, spinach, hummus, whole wheat tortilla | $12.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/grilled.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mediterranean Falafel Wrap <span class="tag green">New!</span></h1>
+			  <p>Falafel, tzatziki, cucumber, tomato, lettuce, wrapped in pita | $12.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/falafel.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut Shrimp Wrap <span class="tag green">New!</span></h1>
+			  <p>Crispy coconut-battered shrimp, mango slaw, sweet chili aioli | $14.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/coconut.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cheeseburger</h1>
+			  <p>Vegan patty, lettuce, tomato, avocado spread | $14.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/cheese.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Plant-Based Burger</h1>
+			  <p>Vegan patty, lettuce, tomato, avocado spread | $14.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/plant.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>BBQ Bacon Burger <span class="tag purple">Popular!</span></h1>
+			  <p>Beef patty, crispy bacon, BBQ sauce, cheddar | $15.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/bacon.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Turkey Burger</h1>
+			  <p> Spiced turkey patty, mango chutney, lettuce | $14.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/turkey.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="dinnerSeafoodMains" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Grilled Mahi-Mahi with Mango Salsa <span class="tag purple">Popular!</span></h1>
+			  <p>Served with rice and sautéed vegetables | $18.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/mahi.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Garlic Butter Shrimp Skillet</h1>
+			  <p>Served with toasted bread | $17.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/shrimp.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Caribbean Fish Tacos</h1>
+			  <p>Soft tortillas, fresh slaw, lime crema | $14.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/tacos.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Crispy Calamari</h1>
+			  <p>With herbs and chilies | $16.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/calamari.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Grilled Salmon</h1>
+			  <p>Served with lemon butter sauce and seasonal vegetables | $18.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/salmon.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut-Crusted Salmon</h1>
+			  <p>Paired with steamed vegetables and plantain mash | $24.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dinner/salmon.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut Curry Shrimp <span class="tag purple">Popular!</span></h1>
+			  <p>Shrimp in coconut curry sauce, served with rice | $17.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/curry.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Garlic Butter Lobster Tail <span class="tag purple">Popular!</span></h1>
+			  <p> Served with Caribbean rice and grilled asparagus | $32.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dinner/garlic.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pan-Seared Snapper in Creole Sauce</h1>
+			  <p>With green fig salad | $22.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dinner/seared.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="dinnerFlavors" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Pork Ribs <span class="tag red">Hot!</span></h1>
+			  <p>Smoky-sweet jerk glaze, served with festival bread | $24.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dinner/pork.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Curry Goat</h1>
+			  <p>Slow-braised goat in a rich Caribbean curry sauce, served with rice, fried plantains, and side salad | $19.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/goat.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Brown Stew Chicken</h1>
+			  <p>Tender chicken simmered in a savory brown gravy with peppers and onions, served with rice & peas | $16.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/stew.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Ital Stew</h1>
+			  <p>Plant-based Caribbean stew with pumpkin, sweet potato, okra, and coconut milk, seasoned with fresh herbs | $14.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/ital.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pepperpot Stew <span class="tag red">Hot!</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Rich, slow-cooked beef stew with cassareep, cinnamon, and Caribbean spices, served with rice | $18.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/pepperpot.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Oxtail with Butter Beans <span class="tag grey">Seasonal</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Fall-off-the-bone oxtail slow-braised in a rich gravy with butter beans, served with rice & peas | $22.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/oxtail.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="dinnerfingerFoods" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Chicken Wings</h1>
+			  <p>Choice of BBQ, jerk, buffalo, or honey garlic | $10.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/wings.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken Skewers <span class="tag red">Hot!</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Marinated and grilled, served with mango chutney | $11.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dinner/skewers.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Loaded Plantain Nachos</h1>
+			  <p>Fried plantain chips topped with cheese, jerk chicken, and salsa | $12.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/jerk tacos.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Loaded Nachos <span class="tag purple">Popular!</span></h1>
+			  <p>Cheese, jalapeños, salsa, sour cream, guacamole (+$3 for chicken or beef) | $11.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/nachos.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fried Plantain Bites</h1>
+			  <p>Sweet plantains with dipping sauce | $8.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/plantains.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Stuffed Potato Skins</h1>
+			  <p>Crispy potato halves loaded with cheese, bacon, scallions, and sour cream (vegetarian option available) | $9.95</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="lunch/potato.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="dinnerAccompaniments" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>French Fries</h1>
+			  <p>$5.50</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Sweet Potato Fries</h1>
+			  <p>$6.25</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mashed Potatoes</h1>
+			  <p>$5.95</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Garlic Butter Vegetables</h1>
+			  <p>$6.50</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Rice & Peas</h1>
+			  <p>$5.95</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Macoroni Pie</h1>
+			  <p>$6.95</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fried Plantain</h1>
+			  <p>$5.75</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Garlic Bread</h1>
+			  <p>$4.95</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Side Salad</h1>
+			  <p>$5.50</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+	  </div>
+	  
+	  <div id="DessertSection" class="menu">
+		<div class="subtab-bar">
+		  <button class="active" onclick="openSub(event, 'Frozen')">Frozen & Chilled Desserts</button>
+		  <button onclick="openSub(event, 'Cakes')">Cakes</button>
+		  <button onclick="openSub(event, 'Pies')">Pastries & Pies</button>
+		  <button onclick="openSub(event, 'Chocolate')">Chocolate Indulgence</button>
+		  <button onclick="openSub(event, 'Treats')">Tropical Treats</button>
+		</div>
+
+		<div id="Frozen" class="submenu" style="display:block;"><br>
+		 <p><i>*Ice Cream Flavors (per scoop – $3.25 / 3 scoops – $7.95)*</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Vanilla Ice Cream</h1>
+			  <p>Classic creamy vanilla made with real vanilla pods</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/vanilla.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chocolate Ice Cream</h1>
+			  <p>Deep, rich cocoa flavor</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/chocolate.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Strawberry Ice Cream</h1>
+			  <p>Sweet strawberry with a ribbon of jam</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/strawberry.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration wishes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut Ice Cream</h1>
+			  <p>Creamy tropical coconut delight</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/coconut.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Rum & Raisin Ice Cream</h1>
+			  <p>Caribbean classic with a hint of dark rum</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/raisin.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mango Ice Cream</h1>
+			  <p>Rich mango puree folded into a smooth ice cream</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/mango.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Guava Ice Cream <span class="tag grey">Seasonal</span></h1>
+			  <p>Guava-infused cream base with fruit chunks</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/guava.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr><br>
+		  <p><i>*Sorbet & Dairy-Free Options (per scoop – $3.50 / 3 scoops – $8.25)*</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Passion Fruit Sorbet <span class="tag purple">Popular!</span></h1>
+			  <p>Tangy and refreshing</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/passion.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut Sorbet</h1>
+			  <p>Smooth, tropical, dairy-free coconut</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/sorbet.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mango Sorbet</h1>
+			  <p>Sweet and golden mango</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/mango sorbet.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Soursop Sorbet <span class="tag green">New!</span> <span class="tag grey">Seasonal</span></h1>
+			  <p>Caribbean favorite with creamy-tart flavor</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/soursop.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Lime Sorbet <span class="tag green">New!</span></h1>
+			  <p>Zesty and icy-cool</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/lime.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr><br>
+		  <p><i>*Signature Sundaes ($8.50)*</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Classic Hot Fudge Sundae <span class="tag purple">Popular!</span></h1>
+			  <p>Vanilla ice cream, hot fudge, whipped cream, and a cherry</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/fudge.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Tropical Paradise Sundae</h1>
+			  <p>Coconut ice cream, pineapple chunks, mango sauce, toasted coconut</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/tropical.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Banana Boat Sundae <span class="tag purple">Popular!</span></h1>
+			  <p>Banana split with vanilla, chocolate, and strawberry ice cream, chocolate & caramel sauce</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/banana.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mango Tango Sundae</h1>
+			  <p>Mango ice cream, passion fruit drizzle, candied ginger</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/mango.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Rum & Raisin Delight</h1>
+			  <p>Rum & raisin ice cream with caramel rum sauce and crushed nuts</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/rum.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr><br>
+		  <p><i>*Gelato & Specialty Cups (per scoop – $3.75)* <span class="tag green">New!</span></i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mango Gelato</h1>
+			  <p>Smooth Italian-style mango gelato</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/mango gelato.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Dark Chocolate Gelato</h1>
+			  <p>Silky and intensely chocolatey</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/dark.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Hazelnut Gelato</h1>
+			  <p>Rich nutty flavor, Italian style</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/hazelnut.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pistachio Gelato</h1>
+			  <p>Smooth pistachio cream gelato</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/pistachio.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+
+		<div id="Cakes" class="submenu"><br>
+		  <p><i>*Classic Cakes (per slice – $7.50 / whole cake – $50)*</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chocolate Fudge</h1>
+			  <p>Rich layered chocolate sponge with fudge frosting</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/chocolate fudge.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Vanilla Bean Layer Cake</h1>
+			  <p>Fluffy vanilla sponge with buttercream frosting</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/vanilla.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Red Velvet</h1>
+			  <p>Moist red cocoa sponge with cream cheese frosting</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/red velvet.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Carrot Cake <span class="tag purple">Popular!</span></h1>
+			  <p>Spiced carrot cake with walnuts and cream cheese icing</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/carrot.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Lemon Drizzle</h1>
+			  <p>Light sponge soaked in lemon syrup with zest glaze</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/lemon.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>          
+		  <div class="menu-item">
+			<div>
+			  <h1>Rum Cake</h1>
+			  <p>Rich Caribbean holiday cake soaked in rum & dried fruits</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/rum.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cassava Pone</h1>
+			  <p>Traditional dense cassava & coconut cake with spice</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/cassava.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pineapple Upside-Down Cake</h1>
+			  <p>Caramelized pineapple topping on moist sponge</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/pineapple.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Sorrel Spice</h1>
+			  <p>Lightly spiced cake infused with sorrel (hibiscus) reduction</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/sorrel.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chocolate Lava <span class="tag purple">Popular!</span></h1>
+			  <p>Molten chocolate center, served warm (mini portion)</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/lava.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Opera Cake</h1>
+			  <p>French layered almond sponge with coffee & chocolate ganache</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/opera.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Tiramisu</h1>
+			  <p>Coffee-soaked sponge layered with mascarpone & cocoa</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/tiramis.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Black Forest Cake</h1>
+			  <p>Chocolate sponge layered with cherries & whipped cream</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/forest.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Dulce De Leche <span class="tag purple">Popular!</span></h1>
+			  <p>Moist sponge layered with caramel cream and dulce de leche drizzle</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/dulce.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Lemon Blossom Cake <span class="tag grey">Seasonal</span></h1>
+			  <p>lemon zest sponge, citrus blossom syrup, butter, sugar, eggs, and mascarpone cream layered with light lemon glaze</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/blossom.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr><br>
+		  <p><i>*Cheesecakes (per slice – $7.25 / whole cake – $48)*</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Classic New York Cheesecake</h1>
+			  <p>Mild Caribbean curry sauce, chicken, sweet peppers, coconut cream</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/cheesecake.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Strawberry Cheesecake</h1>
+			  <p>Mild Caribbean curry sauce, chicken, sweet peppers, coconut cream</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/strawberry cake.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mango Cheesecake <span class="tag purple">Popular!</span></h1>
+			  <p>Mild Caribbean curry sauce, chicken, sweet peppers, coconut cream</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/mango cake.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut Cheesecake <span class="tag purple">Popular!</span></h1>
+			  <p>Mild Caribbean curry sauce, chicken, sweet peppers, coconut cream</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/coconut.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Lavender Honey Cheesecake <span class="tag grey">Seasonal</span></h1>
+			  <p>cream cheese, lavender infusion, wildflower honey, graham crust, vanilla, and eggs finished with a floral honey glaze</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/lavender.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		
+		<div id="Pies" class="submenu"><br>
+		 <p><i>*Pastries (each – $4.25 / assorted platter – $15.95)*</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Croissants</h1>
+			  <p>Butter, Almond, Chocolate</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/croissants.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Danishes</h1>
+			  <p>Apple, Blueberry, Cream Cheese</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/danishes.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Turnovers</h1>
+			  <p>Guava, Pineapple, Apple Cinnamon</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/turnovers.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Eclairs</h1>
+			  <p>Chocolate Glazed, Coffee Cream</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/eclairs.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cream Puffs <span class="tag purple">Popular!</span></h1>
+			  <p>With vanilla or chocolate filling</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/puffs.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Palmiers</h1>
+			  <p>Crispy, buttery puff pastry swirls</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/palmiers.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut Drops</h1>
+			  <p>Caribbean-style sweet coconut clusters</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/drops.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr><br>
+		  <p><i>*Pies (slice – $6.95 / whole pie – $42)*</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Apple Pie <span class="tag purple">Popular!</span></h1>
+			  <p>Classic lattice top</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/apple.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pecan Pie <span class="tag purple">Popular!</span></h1>
+			  <p>Sweet and nutty, southern favorite</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/pecan.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Key Lime Pie</h1>
+			  <p>Tart and refreshing with whipped cream</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/key lime.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Sweet Potato Pie</h1>
+			  <p>Spiced and silky</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/potato.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pumpkin Pie</h1>
+			  <p>Traditional fall-inspired spice</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/pumpkin.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut Cream Pie <span class="tag purple">Popular!</span></h1>
+			  <p>Flaky crust, creamy coconut filling</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/coconut cream.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Banana Cream Pie <span class="tag purple">Popular!</span></h1>
+			  <p>Fresh bananas with custard & whipped cream</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/banana cream.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Guava Custard <span class="tag grey">Seasonal</span></h1>
+			  <p>Tropical Caribbean twist</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/guava.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mango Pie <span class="tag grey">Seasonal</span></h1>
+			  <p>Sweet mango custard in buttery crust</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/mango.avif">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Vanilla Orchid Panna Cotta<span class="tag grey">Seasonal</span></h1>
+			  <p>cream, milk, sugar, gelatin, and vanilla orchid extract set with a berry coulis drizzle</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/orchid.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Chocolate" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Chocolate-Dipped Strawberries	<span class="tag purple">Popular!</span></h1>
+			  <p>Fresh strawberries coated in dark & white chocolate ($7.95 / 6 pcs)</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/strawberries.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		 <p><i>*Mousses, Puddings & Custards($7.25 - $8.25)*</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Dark Chocolate Mousse</h1>
+			  <p>Airy yet rich, topped with whipped cream</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/mousse.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chocolate Garden Mousse	<span class="tag grey">Seasonal</span></h1>
+			  <p>dark chocolate, cream, eggs, butter, vanilla, and edible herb accents like mint and basil for a “garden” finish</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/garden.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chocolate Pot De Creme</h1>
+			  <p>Silky French custard with cocoa nibs</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/pot de creme.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chocolate Bread Pudding	<span class="tag grey">Seasonal</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Caribbean-inspired, with rum-soaked raisins & cocoa drizzle</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/bread.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Spiced Mexican Chocolate Pudding</h1>
+			  <p>Cinnamon & chili hint</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/mexican.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		 <p><i>*Brownies($5.50)*</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fudge Brownie	<span class="tag purple">Popular!</span></h1>
+			  <p>Dense, fudgy square with crackly top</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/brownie.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Walnut Brownie</h1>
+			  <p>classic brownie studded with toasted walnuts</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/walnut.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chocolate Blondie</h1>
+			  <p>Vanilla bar with chunks of white & dark chocolate</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/blondie.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="Treats" class="submenu" style="display:block;"><br>
+		 <p><i>*Tarts & Pastries ($4.00 per tart)*</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Coconut Tart</h1>
+			  <p>Flaky pastry filled with sweet coconut</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/coconut tart.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pine Tart</h1>
+			  <p>Buttery tart with bright pineapple jam</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/pine.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Guava Tart</h1>
+			  <p>Sweet-tangy guava filling in a flaky crust</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/guava tart.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Rose Pistachio Tart	<span class="tag grey">Seasonal</span></h1>
+			  <p>almond flour pastry filled with pistachio cream, rose water, crushed pistachios, butter, and sugar topped with candied rose petals</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/rose.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Hibiscus Creme Brulee	<span class="tag grey">Seasonal</span></h1>
+			  <p>cream, egg yolks, sugar, vanilla bean, and hibiscus infusion topped with caramelized sugar crust</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/hibiscus.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Gizzada</h1>
+			  <p>Coconut-filled pastry with a sweet, toasted filling</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/gizzada.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Bulla</h1>
+			  <p>A soft, sweet Jamaican-style bun, usually eaten as a snack or with cheese</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/bulla.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cheese Straws</h1>
+			  <p>Crisp, buttery baked sticks with a sharp cheesy flavor</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/straws.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Chin-Chin</h1>
+			  <p>Crunchy, bite-sized fried dough snacks with a lightly sweet, spiced taste</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/chin.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <p><i>*Pudding ($5.00)*</i></p>
+		  <div class="menu-item">
+			<div>
+			  <h1>Majarete</h1>
+			  <p>Silky Caribbean corn pudding with coconut and warm spices</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/majarete.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Bread Pudding	<span class="tag grey">Seasonal</span></h1>
+			  <p>Warm, spiced baked pudding with a rich dessert texture</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="dessert/bread pudding.png">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+	  </div>
+	  
+	  <div id="KidsSection" class="menu">
+		<div class="subtab-bar">
+		  <button class="active" onclick="openSub(event, 'kidsPizza')">Pizzas</button>
+		  <button onclick="openSub(event, 'kidsPasta')">Pastas</button>
+		  <button onclick="openSub(event, 'kidsSandwich')">Sandwiches & Wraps</button>
+		  <button onclick="openSub(event, 'kidsFingerfood')">Finger Foods</button>
+		  <button onclick="openSub(event, 'kidsSides')">Sides</button>
+		</div>
+
+		<div id="kidsPizza" class="submenu" style="display:block;">
+		  <div class="menu-item">
+			<div>
+			  <h1>Cheese Pizza</h1>
+			  <p> Classic mozzarella and tomato sauce on a personal crust | $7.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/cheese.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Pepperoni Pizza</h1>
+			  <p>Cheese pizza topped with kid-sized pepperoni rounds | $8.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/pepperoni.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Veggie Pizza</h1>
+			  <p>Tomato, mozzarella, and mild veggies like sweet peppers and mushrooms | $8.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/veggie.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken Flatbread <span class="tag red">Hot!</span></h1>
+			  <p> Mild jerk-seasoned chicken with cheese on a personal flatbread crust | $8.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/jerk chicken.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+
+		<div id="kidsPasta" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Butter & Parmesan Pasta</h1>
+			  <p>Soft pasta tossed with butter and parmesan | $6.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/butter.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mac & Cheese</h1>
+			  <p>Creamy cheese sauce over elbow pasta | $7.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/mac and cheese.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Spaghetti & Meatballs</h1>
+			  <p>Small portion of spaghetti with mild marinara and mini meatballs | $8.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/spaghetti.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Curry Chicken Pasta <span class="tag red">Hot!</span></h1>
+			  <p>Pasta tossed in a mild Caribbean-style curry sauce with tender chicken | $8.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/curry.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="kidsSandwich" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Grilled Cheese Sandwich</h1>
+			  <p>Golden brown with gooey cheddar cheese, served with a small side of fries | $6.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/grilled cheese.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>PB & J Sandwich</h1>
+			  <p>Creamy peanut butter & grape jelly on soft bread (Optional nut-free version available) | $5.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/pb and j.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Turkey & Cheese Wrap</h1>
+			  <p>Turkey, cheese, and lettuce in a small tortilla wrap | $7.00</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/turkey.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Cheese Burger</h1>
+			  <p>Small beef patty with cheese, lettuce, and ketchup on a soft bun | $7.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/burger.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Veggie Burger</h1>
+			  <p>Plant-based patty with mild cheddar on a soft bun | $7.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/veggie burger.webp">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Jerk Chicken Slider <span class="tag red">Hot!</span> <span class="tag purple">Popular!</span></h1>
+			  <p>Mini bun with mild jerk chicken and a cooling mango slaw | $8.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/sliders.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="kidsFingerfood" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Chicken Tenders</h1>
+			  <p>Golden crispy chicken strips served with ketchup or honey mustard | $7.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/tenders.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Mozzarella Sticks</h1>
+			  <p>Breaded cheese sticks served with marinara | $6.75</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/mozz sticks.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Plantain Chips & Guacemole</h1>
+			  <p>Crispy fried plantain chips served with creamy guacamole | $7.50</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/plantain.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Fish Bites</h1>
+			  <p>Lightly battered fish pieces with a mild jerk seasoning and dipping sauce. | $8.25</p>
+			</div>
+			<div class="menu-image-wrapper">
+			  <img src="kids/fish.jpg">
+			  <p class="ai-image-label">AI-generated image for demonstration purposes</p>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		
+		<div id="kidsSides" class="submenu">
+		  <div class="menu-item">
+			<div>
+			  <h1>Fruit Cup</h1>
+			  <p>Fresh seasonal fruit, easy to eat | $3.50</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Steamed Veggies</h1>
+			  <p>Broccoli, carrots, and peas | $3.00</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>French Fries</h1>
+			  <p>Classic shoestring fries | $3.50</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Sweet Potato Fries</h1>
+			  <p>Slightly sweet and crispy | $4.00</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Garlic Bread</h1>
+			  <p>Soft bread with mild garlic butter | $3.75</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Plantain Chips</h1>
+			  <p>Crispy fried plantains, lightly salted | $4.00</p>
+			</div>
+		  </div>
+		  <hr>
+		  <div class="menu-item">
+			<div>
+			  <h1>Dips</h1>
+			  <p>(add to any side or finger food) – $1.25 each</p>
+			  <ul>
+			   <li>Ketchup</li>
+			   <li>Mayonnaise</li>
+			   <li>Mustard</li>
+			   <li>Honey Mustard</li>
+			   <li>Ranch Dressing</li>
+			   <li>BBQ Sauce</li>
+			   <li>Cheese Sauce</li>
+			  </ul>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+	  </div>
+	  
+	</div>
+
+	<script>
+		// Opens the selected main menu tab (Cocktails, Wines, etc.)
+		function openMain(evt, sectionId) {
+
+		  // Hide all main menu sections
+		  document.querySelectorAll('.menu').forEach(m => m.style.display = 'none');
+
+		  // Remove the active styling from all main menu buttons
+		  document.querySelectorAll('.tablink').forEach(t => t.classList.remove('active'));
+
+		  // Display the selected main menu section
+		  document.getElementById(sectionId).style.display = 'block';
+
+		  // Highlight the clicked main menu button
+		  evt.currentTarget.classList.add('active');
+
+		  // Reset the submenu whenever a new main menu is opened
+
+		  // Get the first submenu button inside the selected section
+		  const firstButton = document.getElementById(sectionId).querySelector('.subtab-bar button');
+
+		  // Hide all submenu content within the selected section
+		  document.getElementById(sectionId).querySelectorAll('.submenu').forEach(s => s.style.display = 'none');
+
+		  // If a submenu button exists, automatically display its content
+		  if (firstButton) {
+
+			// Highlight the first submenu button
+			firstButton.classList.add('active');
+
+			// Extract the submenu ID from the button's onclick attribute
+			const firstSubId = firstButton.getAttribute('onclick').match(/'([^']+)'/)[1];
+
+			// Display the first submenu by default
+			document.getElementById(firstSubId).style.display = 'block';
+		  }
+		}
+
+		// Opens the selected submenu within the current main menu
+		function openSub(evt, subId) {
+
+		  // Find the parent menu section of the clicked submenu button
+		  const parentMenu = evt.currentTarget.closest('.menu');
+
+		  // Hide all submenu content in that menu section
+		  parentMenu.querySelectorAll('.submenu').forEach(s => s.style.display = 'none');
+
+		  // Remove the active styling from all submenu buttons
+		  parentMenu.querySelectorAll('.subtab-bar button').forEach(b => b.classList.remove('active'));
+
+		  // Display the selected submenu
+		  document.getElementById(subId).style.display = 'block';
+
+		  // Highlight the clicked submenu button
+		  evt.currentTarget.classList.add('active');
+		}
+		
+		// Mobile nav toggle
+		const hamburger = document.getElementById("hamburger");
+		const navLinks = document.getElementById("navLinks");
+
+		hamburger.addEventListener("click", function() {
+			navLinks.classList.toggle("open");
+			hamburger.classList.toggle("active");
+		});
+
+		navLinks.querySelectorAll("a").forEach(link => {
+			link.addEventListener("click", function() {
+				navLinks.classList.remove("open");
+				hamburger.classList.remove("active");
+			});
+		});
+	</script>
+   <!-- Menu Section Ends -->
+   
+   <p class = "pre-disclaimer">AI-generated Backgound Image</p>
+   <!-- Disclaimer -->
+   <div class="disclaimer">
+   <div class="disclaimer_txt">
+	  <p><b>AI & Content Disclaimer:</b></p>
+	  <p>
+		<p>Botanic Bloom Bistro is a fictional concept restaurant created for educational, artistic, and web design demonstration purposes only. Any menu items, prices, restaurant 
+		details, branding, contact information, addresses, promotions, or business-related content displayed on this website are fictional and are not intended to represent a 
+		real operating restaurant.Images and portions of written content may be generated or enhanced using AI. AI-generated content may contain fictional, inaccurate, or 
+		inconsistent details and should not be interpreted as factual. This website is non-commercial and does not process reservations, payments, deliveries, or real-world 
+		transactions. All trademarks, logos, and brand references remain the property of their respective owners. Any resemblance to existing businesses, products, restaurants, 
+		or persons is purely coincidental.</p>
+	  </p>
+	</div>
+	</div>
+   <!-- Disclaimer Ends -->
+  </body>
+ </html>
